@@ -13,29 +13,28 @@ app = Flask(__name__)
 model = pickle.load(open('best_model.pkl', 'rb'))
 
 @app.route('/')
-def home():
-    return render_template('index.html')
+def landing():
+    return render_template('landing.html')
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET','POST'])
 def predict():
-    # int_features = [int(x) for x in request.form.values()]
-    data = request.form
-    gender = int(data['gender'])  # Change to int
-    hemoglobin = float(data['hemoglobin'])
-    mch = float(data['mch'])
-    mchc = float(data['mchc'])
-    mcv = float(data['mcv'])
+    if request.method == 'GET':
+        return render_template('index.html')
+    else:
+        data = request.form
+        gender = int(data['gender']) 
+        hemoglobin = float(data['hemoglobin'])
+        mch = float(data['mch'])
+        mchc = float(data['mchc'])
+        mcv = float(data['mcv'])
 
-    # final_features = {np.array(int_features)}
-    features = np.array([[gender, hemoglobin, mch, mchc, mcv]])
+        features = np.array([[gender, hemoglobin, mch, mchc, mcv]])
 
-    # prediction = model.predict(final_features)
-    prediction = model.predict(features)
+        prediction = model.predict(features)
 
-    # output = round(prediction[0], 2)
-    output = prediction
+        output = prediction
 
-    return render_template('index.html', prediction_text='Diagnosis: $ {}'.format(output))
+        return render_template('index.html', prediction_text='Diagnosis: $ {}'.format(output))
 
 @app.route('/predict_api', methods=['POST'])
 def predict_api():
