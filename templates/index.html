@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anemia Prediction</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div>
+        <h1>Anemia Prediction</h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="gender">Gender (1 for male, 0 for female):</label>
+                <input type="number" step="1" id="gender" name="gender" required>
+            </div>
+            <div class="form-group">
+                <label for="hemoglobin">Hemoglobin:</label>
+                <input type="number" step="any" id="hemoglobin" name="hemoglobin" required>
+            </div>
+            <div class="form-group">
+                <label for="mch">MCH:</label>
+                <input type="number" step="any" id="mch" name="mch" required>
+            </div>
+            <div class="form-group">
+                <label for="mchc">MCHC:</label>
+                <input type="number" step="any" id="mchc" name="mchc" required>
+            </div>
+            <div class="form-group">
+                <label for="mcv">MCV:</label>
+                <input type="number" step="any" id="mcv" name="mcv" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+        <!-- {% if prediction_text %} -->
+        <h2>{{ prediction_text }}</h2>
+        <!-- {% endif %} -->
+    </div>
+</body>
+</html>
