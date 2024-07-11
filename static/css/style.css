@@ -5,36 +5,53 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f8f9fa;
+    background: url('../assets/3.jpg') no-repeat center center; 
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.885);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 h1 {
     text-align: center;
     font-weight: bold;
     margin-bottom: 20px;
+    color: #007bff;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    width: 100%;
 }
 
 .form-group {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin-bottom: 15px;
 }
 
 label {
     font-weight: bold;
-    flex: 1;
-    text-align: right;
-    margin-right: 20px;
+    margin-bottom: 5px;
+    color: #333;
 }
 
 input {
-    flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -64,8 +81,10 @@ button:hover {
     background-color: #0056b3;
 }
 
+
 h2 {
     text-align: center;
     margin-top: 20px;
     font-weight: bold;
+    color: #007bff;
 }

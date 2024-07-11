@@ -8,34 +8,47 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <div>
-        <h1>Anemia Prediction</h1>
-        <form action="/predict" method="post">
-            <div class="form-group">
-                <label for="gender">Gender (1 for male, 0 for female):</label>
-                <input type="number" step="1" id="gender" name="gender" required>
-            </div>
-            <div class="form-group">
-                <label for="hemoglobin">Hemoglobin:</label>
-                <input type="number" step="any" id="hemoglobin" name="hemoglobin" required>
-            </div>
-            <div class="form-group">
-                <label for="mch">MCH:</label>
-                <input type="number" step="any" id="mch" name="mch" required>
-            </div>
-            <div class="form-group">
-                <label for="mchc">MCHC:</label>
-                <input type="number" step="any" id="mchc" name="mchc" required>
-            </div>
-            <div class="form-group">
-                <label for="mcv">MCV:</label>
-                <input type="number" step="any" id="mcv" name="mcv" required>
-            </div>
-            <button type="submit">Predict</button>
-        </form>
-        <!-- {% if prediction_text %} -->
-        <h2>{{ prediction_text }}</h2>
-        <!-- {% endif %} -->
+    <div class="container">
+        <form class="nav">
+            <a href="/" class="navl">Home</a>
+            <a href="" class="navl">About</a>
+        </form>  
+        <div class="card">
+            <h1>Anemia Prediction</h1>
+            <form action="/predict" method="post">
+                <div class="form-group">
+                    <label for="gender">Gender (1 for male, 0 for female):</label>
+                    <input type="number" step="1" id="gender" name="gender" required>
+                </div>
+                <div class="form-group">
+                    <label for="hemoglobin">Hemoglobin:</label>
+                    <input type="number" step="any" id="hemoglobin" name="hemoglobin" required>
+                </div>
+                <div class="form-group">
+                    <label for="mch">MCH:</label>
+                    <input type="number" step="any" id="mch" name="mch" required>
+                </div>
+                <div class="form-group">
+                    <label for="mchc">MCHC:</label>
+                    <input type="number" step="any" id="mchc" name="mchc" required>
+                </div>
+                <div class="form-group">
+                    <label for="mcv">MCV:</label>
+                    <input type="number" step="any" id="mcv" name="mcv" required>
+                </div>
+                <button type="submit">Predict</button>
+            </form>
+            
+            <h2>
+                {% if prediction_text == "1" %}
+                    The prediction is positive for anemia.
+                {% elif prediction_text == "0" %}
+                    The prediction is negative for anemia.
+                {% else %}
+                    The prediction result is unknown.
+                {% endif %}
+            </h2>
+        </div>
     </div>
 </body>
 </html>

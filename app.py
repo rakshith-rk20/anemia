@@ -33,8 +33,7 @@ def predict():
         prediction = model.predict(features)
 
         output = prediction
-
-        return render_template('index.html', prediction_text='Diagnosis: $ {}'.format(output))
+        return render_template('index.html', prediction_text=format(output[0]))
 
 @app.route('/predict_api', methods=['POST'])
 def predict_api():
